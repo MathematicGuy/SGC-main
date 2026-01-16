@@ -1,0 +1,9 @@
+ftfy
+numpy
+Pillow
+regex
+requests
+setuptools
+tqdm
+typing_extensions
+scipy
