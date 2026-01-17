@@ -208,7 +208,7 @@ if __name__ == "__main__":
         stats_r = split_imagenet_dataset(imagenet_r_source, imagenet_r_output,
                                         "ImageNet-R", split_ratio=0.8)
 
-    imagenet100_source = r"D:\CODE\Class-Incremental-Learning-Code\Semantic_Grouping_with_Du_Supplementary Material\ImageNet100"
-    imagenet100_output = r"d:\CODE\Class-Incremental-Learning-Code\Semantic_Grouping_with_Du_Supplementary Material\my_data\imagenet100"
+    # imagenet100_source = r"D:\CODE\Class-Incremental-Learning-Code\Semantic_Grouping_with_Du_Supplementary Material\ImageNet100"
+    # imagenet100_output = r"d:\CODE\Class-Incremental-Learning-Code\Semantic_Grouping_with_Du_Supplementary Material\my_data\imagenet100"
 
-    consolidate_imagenet100_splits(imagenet100_source, imagenet100_output)
+    # consolidate_imagenet100_splits(imagenet100_source, imagenet100_output)

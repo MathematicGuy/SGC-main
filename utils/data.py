@@ -151,21 +151,26 @@ class iImageNet100(iData):
         transforms.CenterCrop(size=(224, 224)),
         transforms.ToTensor(),
         transforms.Normalize(mean=(0.48145466, 0.4578275, 0.40821073),
-							std=(0.26862954, 0.26130258, 0.27577711))
+                            std=(0.26862954, 0.26130258, 0.27577711))
     ]
     test_trsf = train_trsf
     class_order = np.arange(100).tolist()
 
-    def download_data(self):
-        train_dir = "../my_data/imagenet100/train/"
-        test_dir = "../my_data/imagenet100/test/"
 
-        train_dset = datasets.ImageFolder(train_dir)
-        test_dset = datasets.ImageFolder(test_dir)
+    def download_data(self):
+
+        # Get current Directory path
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        # Navigate to parent, then to my_data
+        base_dir = os.path.join(script_dir, "..", "my_data", "imagenet100")
+
+        train_dset = os.path.join(base_dir, "train") # ../my_data/imagenet100/train/
+        test_dset = os.path.join(base_dir, "test") # ../my_data/imagenet100/test/
 
         # Extract data
         self.train_data, self.train_targets = split_images_labels(train_dset.imgs)
-        self.test_data, self.test_targets = split_images_labels(test_dset.imgs)
+        self.test_data, self.test_targets = split_images_labels(test_dset.imgs) #
 
         # Align test labels to match train class ordering
         self._align_class_labels(train_dset.class_to_idx, test_dset.class_to_idx)
@@ -302,7 +307,7 @@ class CUB_200_2011(Dataset):
     # tgz_md5 = '97eceeb196236b17998738112f37df78'
 
     def __init__(self,mode='train', num_classes=200, transform=None, loader=default_loader, download=True,
-				with_attributes=False, attributes_version='v0'):
+                with_attributes=False, attributes_version='v0'):
         self.transform = transform
         self.loader = default_loader
         # self.train = train
